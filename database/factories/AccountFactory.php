@@ -2,7 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\AccountType;
+
+use App\Models\AccountTypes;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,7 +18,7 @@ class AccountFactory extends Factory
     {
         return [
             'user_id'=> User::factory(),
-            'type_id'=>AccountType::factory(),
+            'type_id'=>AccountTypes::factory(),
             'phone_number'=>$this->faker->phoneNumber(),
             'email'=>$this->faker->email(),
             'adress'=>$this->faker->address()

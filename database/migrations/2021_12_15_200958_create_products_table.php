@@ -18,11 +18,11 @@ class CreateProductsTable extends Migration
             $table->foreignId('category_id');
             $table->string('name');
             $table->integer('life_time');
-            $table->float('price');
-            $table->float('weight');
-            $table->float('width');
-            $table->float('height');
-            $table->float('depth');
+            $table->double('price');
+            $table->double('weight');
+            $table->double('width');
+            $table->double('height');
+            $table->double('depth');
             $table->timestamps();
         });
     }

@@ -2,10 +2,9 @@
 
 namespace Database\Factories;
 
-use App\Models\Account;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class AccountTypeFactory extends Factory
+class AccountTypesFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -15,7 +14,6 @@ class AccountTypeFactory extends Factory
     public function definition()
     {
         return [
-            'account_id'=> Account::factory(),
             'role'=>$this->faker->word()
         ];
     }
