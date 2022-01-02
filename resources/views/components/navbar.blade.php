@@ -6,7 +6,6 @@
         z-10
         flex
         items-center
-        bg-blue-800
         justify-between
         w-full
         menu-color

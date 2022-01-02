@@ -12,13 +12,13 @@ class Account extends Model
     function offers(){
         return $this->hasMany(Offer::class);
     }
-    function users(){
+    function user(){
         return $this->belongsTo(User::class);
     }
-    function accountTypes(){
+    function accountType(){
         return $this->belongsTo(AccountType::class);
     }
-    function transactions(){
+    function transaction(){
         return $this->belongsTo(Transaction::class);
     }
 }

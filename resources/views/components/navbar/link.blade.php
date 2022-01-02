@@ -6,8 +6,8 @@
         cursor-pointer
         px-2
         mx-2
-        text-blue-900
-        hover:text-blue-700 hover:underline
+        text-cyan-800
+        hover:text-cyan-600 hover:underline
     "
 >
     {{ $slot }}

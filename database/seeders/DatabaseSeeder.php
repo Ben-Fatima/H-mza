@@ -20,16 +20,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $user = User::factory()->create();
-        $type = AccountTypes::factory()->create();
         $account = Account::factory()->create([
             'user_id'=>$user->id,
-            'type_id'=>$type->id,
         ]);
         $category = Category::factory()->create();
         $product = Product::factory()->create([
             'category_id'=>$category->id
         ]);
-        $offer = Offer::factory()->create([
+        $offer = Offer::factory(7)->create([
             'account_id'=>$account->id,
             'product_id'=>$product->id
         ]);

@@ -18,10 +18,10 @@ class AccountFactory extends Factory
     {
         return [
             'user_id'=> User::factory(),
-            'type_id'=>AccountTypes::factory(),
             'phone_number'=>$this->faker->phoneNumber(),
             'email'=>$this->faker->email(),
-            'adress'=>$this->faker->address()
+            'adress'=>$this->faker->address(),
+            'role' => $this->faker->randomElement(['user','admin'])
         ];
     }
 }

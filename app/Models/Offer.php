@@ -9,10 +9,10 @@ class Offer extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    function products(){
+    function product(){
         return $this->belongsTo(Product::class);
     }
-    function accounts(){
+    function account(){
         return $this->belongsTo(Account::class);
     }
 }

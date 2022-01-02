@@ -19,8 +19,8 @@ class CreateOffersTable extends Migration
             $table->foreignId('account_id');
             $table->string('title');
             $table->timestamp('date');
-            $table->string('description');
-            $table->string('adress');
+            $table->text('description');
+            $table->text('adress');
             $table->timestamps();
         });
     }

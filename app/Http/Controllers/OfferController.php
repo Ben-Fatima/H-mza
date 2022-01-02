@@ -11,7 +11,8 @@ class OfferController extends Controller
 {
     public function index()
     {
-        $offers = Offer::latest()->with(["products", "accounts"])->get();
+        $offers = Offer::latest()->with(["product", "account.user"])->get();
+
         return view('offers',[
             'offers'=>$offers,
             'accounts'=>Account::all(),
