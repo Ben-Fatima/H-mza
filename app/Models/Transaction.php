@@ -12,6 +12,6 @@ class Transaction extends Model
         $this->hasMany(Account::class);
     }
     function paymentMethods(){
-        $this->hasOne(PaymentMethod::class);
+        $this->belongsTo(PaymentMethod::class);
     }
 }

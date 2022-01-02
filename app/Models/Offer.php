@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Offer extends Model
 {
     use HasFactory;
+    protected $guarded = [];
     function products(){
-        return $this->hasOne(Product::class);
+        return $this->belongsTo(Product::class);
     }
     function accounts(){
         return $this->belongsTo(Account::class);

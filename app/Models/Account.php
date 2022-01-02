@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Account extends Model
 {
     use HasFactory;
+    protected $guarded = [];
     function offers(){
         return $this->hasMany(Offer::class);
     }
@@ -18,6 +19,6 @@ class Account extends Model
         return $this->belongsTo(AccountType::class);
     }
     function transactions(){
-        return $this->hasOne(Transaction::class);
+        return $this->belongsTo(Transaction::class);
     }
 }

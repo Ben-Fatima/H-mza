@@ -42,6 +42,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     function accounts(){
-        $this->hasOne(Account::class);
+        $this->belongsTo(Account::class);
     }
 }
