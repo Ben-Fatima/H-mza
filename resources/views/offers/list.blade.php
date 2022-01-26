@@ -35,14 +35,18 @@
             </div>
             <x-title>What's New</x-title>
             <div class="w-full h-px bg-black"></div>
-            <form class="flex justify-around text-sm">
+            <form
+                method="POST"
+                action="/offers"
+                class="flex justify-around text-sm"
+            >
                 @csrf
                 <div>
                     <label class="block py-1 text-gray-800 font-light"
                         >Product name:</label
                     >
                     <input
-                        name="days"
+                        name="name"
                         class="block px-4 py-2 border rounded"
                         placeholder="name"
                     />
@@ -51,7 +55,10 @@
                     <label class="block py-1 text-gray-800 font-light"
                         >Price range:</label
                     >
-                    <select class="block w-full px-4 py-2 border rounded">
+                    <select
+                        name="price"
+                        class="block w-full px-4 py-2 border rounded"
+                    >
                         <option>Choose price range</option>
                         <option>100 &#60;</option>
                         <option>100 &#62; and 200 &#60;</option>
@@ -63,7 +70,10 @@
                     <label class="block py-1 text-gray-800 font-light"
                         >Category:</label
                     >
-                    <select class="block w-full px-4 py-2 border rounded">
+                    <select
+                        name="category"
+                        class="block w-full px-4 py-2 border rounded"
+                    >
                         <option>Choose category</option>
                         @foreach($categories as $category)
                         <option>{{$category->name}}</option>
@@ -74,9 +84,28 @@
                     <label class="block py-1 text-gray-800 font-light"
                         >Address:</label
                     >
-                    <select class="block w-full px-4 py-2 border rounded">
-                        <option>Choose address</option>
-                    </select>
+                    <input
+                        name="address"
+                        class="block px-4 py-2 border rounded"
+                        placeholder="name"
+                    />
+                </div>
+                <div>
+                    <button
+                        type="submit"
+                        class="
+                            rounded-full
+                            border border-black
+                            black
+                            hover:text-gray-700
+                            text-xs
+                            py-3
+                            px-6
+                            mt-6
+                        "
+                    >
+                        Search <i class="fas fa-search px-1"></i>
+                    </button>
                 </div>
             </form>
             <div class="pb-4 grid grid-cols-3 mx-auto mt-8">

@@ -22,6 +22,17 @@ class OfferController extends Controller
             'categories'=>Category::all()
         ]);
     }
+    public function filter(){
+        if (request("name") != '') {
+            $offers = Offer::latest()->where('title','like','%'.request('name').'%')->with(["product", "user"])->get();
+            return view('offers.list',[
+                'offers'=>$offers,
+                'users'=>User::all(),
+                'products'=>Product::all(),
+                'categories'=>Category::all()
+            ]);
+        }
+    }
     public function create()
     {
         return view("offers.create");

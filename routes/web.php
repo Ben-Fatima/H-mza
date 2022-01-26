@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get("/offers", [OfferController::class, "index"]);
+Route::post("/offers", [OfferController::class, "filter"]);
 Route::get("/offers/create", [OfferController::class, "create"]);
 Route::post("/offers/create", [OfferController::class, "store"]);
 Route::get("/offers/edit/{id}", [OfferController::class, "edit"]);
