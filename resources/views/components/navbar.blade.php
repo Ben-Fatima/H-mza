@@ -13,8 +13,15 @@
 >
     <div class="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
         <div class="text-sm lg:flex-grow">
-            <img src="/images/LOGO.jpeg" class="w-16" alt="logo hamza" />
+            <img
+                src="/images/logo.png"
+                class="w-36 px-4 py-3"
+                alt="logo hamza"
+            />
         </div>
+        <x-navbar.link to="/"
+            ><i class="fas fa-home px-1"></i> Home</x-navbar.link
+        >
         <x-navbar.link to="/offers"> Offers</x-navbar.link>
         @auth
         <x-navbar.link to="/profile">Profile</x-navbar.link>

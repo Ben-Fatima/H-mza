@@ -11,6 +11,10 @@ use Illuminate\Http\Request;
 
 class OfferController extends Controller
 {
+    public function home(){
+        $offers = Offer::latest()->with(["product", "user"])->get();
+        return view('home',['offers'=>$offers]);
+    }
     public function index()
     {
         $offers = Offer::latest()->with(["product", "user"])->get();
@@ -57,8 +61,13 @@ class OfferController extends Controller
         return view('offers.edit',['offer'=>$offer]);
     }
     public function describe($id){
-        $offer = Offer::findOrFail($id);
-        return view('offers.detail',['offer'=>$offer]);
+        if (auth()->user()) {
+            $offer = Offer::findOrFail($id);
+            return view('offers.detail',['offer'=>$offer]);
+        }else{
+            return view('offers.error');
+        }
+        
     }
     public function update($id){
         $offer = Offer::findOrFail($id);
