@@ -1,12 +1,3 @@
-<h1
-    class="
-        px-4
-        py-6
-        mx-auto
-        text-center text-3xl text-cyan-900
-        uppercase
-        font-bold
-    "
->
+<h1 class="px-4 py-4 mt-8 mx-auto text-center text-2xl black uppercase font">
     {{ $slot }}
 </h1>

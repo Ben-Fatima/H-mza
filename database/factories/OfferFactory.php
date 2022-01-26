@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Account;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class OfferFactory extends Factory
@@ -16,7 +16,7 @@ class OfferFactory extends Factory
     public function definition()
     {
         return [
-            'account_id'=> Account::factory(),
+            'user_id'=> User::factory(),
             'product_id'=>Product::factory(),
             'title'=>$this->faker->word(),
             'date'=>$this->faker->date(),

@@ -17,11 +17,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -41,7 +37,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    function account(){
-        $this->hasOne(Account::class);
+    function offers(){
+        return $this->hasMany(Offer::class);
+    }
+    function products(){
+        return $this->hasMany(Product::class);
     }
 }

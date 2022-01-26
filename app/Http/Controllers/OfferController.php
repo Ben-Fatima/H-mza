@@ -3,43 +3,38 @@
 namespace App\Http\Controllers;
 
 use App\Models\Account;
+use App\Models\Category;
 use App\Models\Offer;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class OfferController extends Controller
 {
     public function index()
     {
-        $offers = Offer::latest()->with(["product", "account.user"])->get();
+        $offers = Offer::latest()->with(["product", "user"])->get();
 
-        return view('offers',[
+        return view('offers.list',[
             'offers'=>$offers,
-            'accounts'=>Account::all(),
-            'products'=>Product::all()
+            'users'=>User::all(),
+            'products'=>Product::all(),
+            'categories'=>Category::all()
         ]);
     }
     public function create()
     {
-        return view("create-Offers");
+        return view("offers.create");
     }
    public function store()
     {
         $attributs = request()->validate([
-            "Name" => "required",
-            "Height" => "required|numeric",
-            "Width" => "required|numeric",
-            "Weight" => "required|numeric",
-            "Depth" => "required|numeric",
+            'date'=>'required',
+            'title'=>'required',
+            'description'=>'required'
         ]);
-        Offer::factory()->create([
-            "name" => $attributs["Name"],
-            "height" => $attributs["Height"],
-            "width" => $attributs["Width"],
-            "weight" => $attributs["Weight"],
-            "depth" => $attributs["Depth"],
-        ]);
-        return redirect("/");
+        Offer::create($attributs);
+        return redirect('/offers');
     }
     public function delete($id){
         $Offer = Offer::findOrFail($id);
@@ -47,19 +42,19 @@ class OfferController extends Controller
         return redirect('/');
     }
     public function edit($id){
-        $Offer = Offer::findOrFail($id);
-        return view('edit-Offer',['Offer'=>$Offer]);
+        $offer = Offer::findOrFail($id);
+        return view('offers.edit',['offer'=>$offer]);
+    }
+    public function describe($id){
+        $offer = Offer::findOrFail($id);
+        return view('offers.detail',['offer'=>$offer]);
     }
     public function update($id){
-        $Offer = Offer::findOrFail($id);
-        $attributs = request()->validate([
-            "Name" => "required",
-            "Height" => "required|numeric",
-            "Width" => "required|numeric",
-            "Weight" => "required|numeric",
-            "Depth" => "required|numeric",
-        ]);
-        $Offer->update($attributs);
-        return redirect('/');
+        $offer = Offer::findOrFail($id);
+        $product = Product::findOrFail(request('product'));
+        $offer->product_id = $product->id;
+        $offer->save();
+        return redirect('/offers');
+        
     }
 }

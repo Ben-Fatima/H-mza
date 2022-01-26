@@ -1,3 +1,45 @@
-.menu-color {
-    background-color: #f0eed9;
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;900&display=swap");
+
+body {
+    font-family: "Raleway";
+}
+
+.font {
+    font-family: "Playfair Display";
+}
+.bold {
+    font-family: "Cormorant Garamond";
+}
+.black {
+    color: #11151d;
+}
+.backg-black {
+    background-color: #11151d;
+}
+.blue {
+    color: #222d41;
+}
+.bg-blue {
+    background-color: #222d41;
+}
+.grey {
+    color: #374158;
+}
+.bg-grey {
+    background-color: #374158;
+}
+.crimson {
+    color: #7f5056;
+}
+.bg-crimson {
+    background-color: #7f5056;
+}
+.orange {
+    color: #d76c58;
+}
+.bg-orange {
+    background-color: #d76c58;
 }

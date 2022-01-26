@@ -8,9 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Transaction extends Model
 {
     use HasFactory;
-    function accounts(){
-        $this->hasMany(Account::class);
-    }
+
     function paymentMethods(){
         $this->belongsTo(PaymentMethod::class);
     }

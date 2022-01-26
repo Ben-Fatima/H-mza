@@ -9,10 +9,11 @@ class Offer extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $dates = ['date'];
     function product(){
         return $this->belongsTo(Product::class);
     }
-    function account(){
-        return $this->belongsTo(Account::class);
+    function user(){
+        return $this->belongsTo(User::class);
     }
 }

@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Account;
-use App\Models\AccountTypes;
 use App\Models\Category;
 use App\Models\Offer;
 use App\Models\Product;
@@ -19,17 +17,32 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::factory()->create();
-        $account = Account::factory()->create([
-            'user_id'=>$user->id,
+        //$user = User::factory()->create();
+        //$category = Category::factory()->create();
+        //$product = Product::factory()->create([
+        //    'category_id'=>$category->id
+        //]);
+        //$offer = Offer::factory(7)->create([
+        //    'user_id'=>$user->id,
+        //    'product_id'=>$product->id
+        //]);
+        Category::factory()->create([
+            'name' => 'Books'
         ]);
-        $category = Category::factory()->create();
-        $product = Product::factory()->create([
-            'category_id'=>$category->id
+        Category::factory()->create([
+            'name' => 'Beauty & Personal Care'
         ]);
-        $offer = Offer::factory(7)->create([
-            'account_id'=>$account->id,
-            'product_id'=>$product->id
+        Category::factory()->create([
+            'name' => 'Electronics'
+        ]);
+        Category::factory()->create([
+            'name' => 'Computers'
+        ]);
+        Category::factory()->create([
+            'name' => 'Clothing, Shoes and Jewelry'
+        ]);
+        Category::factory()->create([
+            'name' => 'Office Products'
         ]);
       }
 }

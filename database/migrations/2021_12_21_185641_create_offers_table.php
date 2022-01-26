@@ -15,12 +15,10 @@ class CreateOffersTable extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id');
-            $table->foreignId('account_id');
+            $table->foreignId('product_id')->nullable();
             $table->string('title');
             $table->timestamp('date');
             $table->text('description');
-            $table->text('adress');
             $table->timestamps();
         });
     }
